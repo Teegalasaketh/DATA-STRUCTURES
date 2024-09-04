@@ -1,20 +1,18 @@
 import java.util.*;
 public class InterpolationSearch {
-    public static int interpolationSearch(int[] arr, int target,int n) {
+    public static int interpolationSearch(int[] arr, int key ,int n) {
         Arrays.sort(arr);
         int low = 0;
         int high = n-1;
         while (low <= high && arr[low]<= key && arr[high]>= key ) {
-            int pos = low + ((target - arr[low]) * (high - low)) / (arr[high] - arr[low]);
-            if (arr[pos] == target) {
+            int pos = low + ((key - arr[low]) * (high - low)) / (arr[high] - arr[low]);
+            if (arr[pos] == key) {
                 return pos;
             }
-            if (arr[pos] < target) {
+            if (arr[pos] < key) 
                 low = pos + 1;
-            }
-            else {
+            else 
                 high = pos - 1;
-            }
         }
         return -1;
     }
