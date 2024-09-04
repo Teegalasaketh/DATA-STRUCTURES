@@ -4,7 +4,7 @@ public class InterpolationSearch {
         Arrays.sort(arr);
         int low = 0;
         int high = n-1;
-        while (low <= high ) {
+        while (low <= high && arr[low]<= key && arr[high]>= key ) {
             int pos = low + ((target - arr[low]) * (high - low)) / (arr[high] - arr[low]);
             if (arr[pos] == target) {
                 return pos;
